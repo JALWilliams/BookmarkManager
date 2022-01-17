@@ -6,7 +6,7 @@ describe Bookmark do
   subject(:bookmark_manager) { described_class }
 
   it 'can display all the bookmarks' do
-    expect(bookmark_manager.view_all).to include("www.net-a-porter.com", "www.google.com")
+    expect(bookmark_manager.view_all).to include("http://www.makersacademy.com", "http://www.google.com", "http://www.destroyallsoftware.com")
   end
 
 end
