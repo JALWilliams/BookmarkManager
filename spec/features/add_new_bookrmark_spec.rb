@@ -6,9 +6,10 @@ feature 'Add new bookmark to Bookmark Manager' do
     expect(page).to have_content ("Add new bookmark")
   end
 
-  scenario '- I can add a new link to create a bookmark' do 
+  scenario '- I can add a new title & link to create a bookmark' do 
     visit ('/bookmarks')
     click_button 'Add link'
+    fill_in :title, with: 'Net-a-Porter'
     fill_in :URL ,with: 'https://www.net-a-porter.com'
     click_button 'Submit'
     expect(page).to have_content ('https://www.net-a-porter.com')

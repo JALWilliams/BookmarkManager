@@ -19,9 +19,10 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_bookmark' do  
-    session[:new_bookmark] = params[:URL]
+    session[:new_bookmark_url] = params[:URL]
+    session[:new_bookmark_title] = params[:title]
     # @new_bookmark = session[:new_bookmark]
-    Bookmark.create(session[:new_bookmark])
+    Bookmark.create(session[:new_bookmark_url], session[:new_bookmark_title])
     # erb :'bookmarks/test' 
     redirect ('/bookmarks')
   end

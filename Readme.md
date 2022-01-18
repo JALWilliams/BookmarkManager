@@ -19,8 +19,8 @@
 ![Screenshot](DM_UserStory1.png)
 
 ### User Story 2
-As a user
-So that I can easily access new pages I want to often visit (in the future)
-I'd like to be able to add new bookmarks to my bookmark manager 
+- As a user
+- So that I can easily access new pages I want to often visit (in the future)
+- I'd like to be able to add new bookmarks to my bookmark manager 
 
 ![Screenshot](DM_UserStory2.png)

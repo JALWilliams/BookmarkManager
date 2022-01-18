@@ -21,8 +21,11 @@ describe Bookmark do
 
   describe 'create' do
     it 'can create a new enty in the database w/new bookmark' do
-      bookmark_manager.create('https://net-a-porter')
-      expect(bookmark_manager.view_all).to include('https://net-a-porter')
+       new_bookmark = bookmark_manager.create('https://net-a-porter',"Net-A-Porter")
+      #  p  new_bookmark => array of hashes w/ individual rows 
+      #  p new_bookmark[0] => last has added! or new_bookmark.last[]
+      expect(new_bookmark[0]['title']).to eq ("Net-A-Porter")
+      expect(new_bookmark[0]['url']).to eq ("https://net-a-porter")
     end
   end
   
