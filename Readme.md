@@ -31,3 +31,10 @@
 - I'd like to be able to delete a bookmark
 
 ![Screenshot](DM_UserStory3.png)
+
+### User Story 4
+- As a user
+- So that I can easily get update a bookmark if the URL has changed 
+- I'd like to be able to update a bookmark
+
+![Screenshot](DM_UserStory4.png)
