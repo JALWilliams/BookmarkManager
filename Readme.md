@@ -24,3 +24,10 @@
 - I'd like to be able to add new bookmarks to my bookmark manager 
 
 ![Screenshot](DM_UserStory2.png)
+
+### User Story 3
+- As a user
+- So that I can easily get rid of quick links (bookmarks) to pages I don't visit anymore
+- I'd like to be able to delete a bookmark
+
+![Screenshot](DM_UserStory3.png)
