@@ -38,9 +38,6 @@ describe Bookmark do
   describe 'delete' do
     it 'can delete an existing bookmark from the database' do
       bookmark_manager.delete('http://www.destroyallsoftware.com', 'Destroy all Software')
-      # Bookmarks will store an array of instsance variables.. 
-      # will need to loop through each instance to extract titles and urls
-      # check that they don't include DELETE 
       bookmarks = bookmark_manager.view_all 
 
       bookmark_titles = [ ]
@@ -55,7 +52,23 @@ describe Bookmark do
       expect(bookmark_urls).not_to  include('http://www.destroyallsoftware.com')
     end
 
-  end 
-  
+    describe 'update' do
+      it 'can update an existing bookmark - title or url' do
+        bookmark_manager.update('https://bravefoods.co.uk/collections/powerful-pulses','Brave Snacks')
 
+        bookmarks = bookmark_manager.view_all 
+
+        bookmark_titles = [ ]
+        bookmark_urls = [ ]
+
+        bookmarks.map do |bookmark|
+          bookmark_titles.push(bookmark.title)
+          bookmark_urls.push(bookmark.url)
+        end
+
+        expect(bookmark_titles).to include('Brave Snacks')
+        expect(bookmark_urls).to include('https://bravefoods.co.uk/collections/powerful-pulses')
+      end
+    end
+  end
 end

@@ -53,5 +53,36 @@ class Bookmark
     results = connection.exec_params("DELETE FROM bookmarks WHERE url = ($1) and title = ($2);", [url, title])
   end
 
+  def self.update(url, title)
+    if ENV['ENVIRONMENT'] == 'test' 
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect( dbname: 'bookmark_manager')
+    end
+
+    if self.exists?(url,title)
+      connection.exec_params("UPDATE bookmarks SET url = $1, title = $2  WHERE url = $1 OR title = $2;", [url, title])
+    else 
+      self.create(url,title)
+    end
+
+  end
+
+  private 
+
+  def self.exists?(url,title)
+    bookmarks = Bookmark.view_all 
+
+    bookmark_titles = [ ]
+    bookmark_urls = [ ]
+
+    bookmarks.map do |bookmark|
+        bookmark_titles.push(bookmark.title)
+        bookmark_urls.push(bookmark.url)
+    end
+
+    bookmark_urls.include?(url) || bookmark_titles.include?(title) 
+  end
+
 
 end
