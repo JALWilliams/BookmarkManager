@@ -27,5 +27,16 @@ class BookmarkManager < Sinatra::Base
     redirect ('/bookmarks')
   end
 
+  get '/delete_bookmark' do 
+    erb :'bookmarks/delete_bookmark' 
+  end
+
+  post '/delete_bookmark' do 
+    session[:delete_bookmark_url] = params[:title_to_delete]
+    session[:delete_bookmark_title] = params[:url_to_delete]
+    Bookmark.delete(params[:url_to_delete], params[:title_to_delete])
+    redirect ('/bookmarks')
+  end
+
   run! if app_file == $0
 end
