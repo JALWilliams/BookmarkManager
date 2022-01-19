@@ -12,8 +12,7 @@ feature 'Add new bookmark to Bookmark Manager' do
     fill_in :title, with: 'Net-a-Porter'
     fill_in :URL ,with: 'https://www.net-a-porter.com'
     click_button 'Submit'
-    # expect(page).to have_content ('https://www.net-a-porter.com')
-    expect(page).to have_content ('Net-a-Porter')
+    expect(page).to have_link 'Net-a-Porter', href: 'https://www.net-a-porter.com'
   end
 
 end
