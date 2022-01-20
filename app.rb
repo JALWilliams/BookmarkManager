@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/bookmark.rb'
+require './database_connection_setup'
+
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
